@@ -18,7 +18,7 @@ request({
   client.messages.create({ 
     to: "+13525479441", 
     from: "+13526190024", 
-    body: "Current Temperature: " + weatherData.currently.temperature + " \nCurrently: " + weatherData.currently.summary,
+    body: "Current Temperature: " + weatherData.currently.temperature + "\xB0" + " \nCurrently: " + weatherData.currently.summary,
   }, function(err, message) { 
     console.log(err);
     console.log(message.sid); 
