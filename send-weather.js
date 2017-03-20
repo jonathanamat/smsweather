@@ -7,7 +7,7 @@ request({
   console.log('error:', error);
   console.log('statusCode:', response && response.statusCode);
   var weatherData = JSON.parse(body);
-  console.log('Temperature:', weatherData.currently.temperature, 'Currently:', weatherData.currently.summary); 
+  console.log('Temperature:', weatherData.currently.temperature, 'Currently:', weatherData.currently.summary, 'Rain Chance:', weatherData.currently.precipProbability); 
 
   var accountSid = 'AC0534d92fb3e99e3b58430a6310b0539a'; 
   var authToken = 'ef9775f3426922e5861a8c704ce2afb1'; 
@@ -16,17 +16,12 @@ request({
   var client = require('twilio')(accountSid, authToken); 
  
   client.messages.create({ 
-    to: "+13525479441", 
+    to: "+13522740965", 
     from: "+13526190024", 
-    body: "Current Temperature: " + weatherData.currently.temperature + "\xB0" + " \nCurrently: " + weatherData.currently.summary,
+    body: "Current Temp: " + weatherData.currently.temperature + "\xB0" + " \nOutside: " + weatherData.currently.summary + " \nRain Chance: " + weatherData.currently.precipProbability + "%",
   }, function(err, message) { 
     console.log(err);
     console.log(message.sid); 
   });
  
-
-
 }); 
-
-
-
