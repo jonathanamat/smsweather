@@ -2,7 +2,7 @@
   var request = require('request');
 
 request({
-  url: 'https://api.darksky.net/forecast/ab610bc083b2e6ffb15905373c648898/29.1872,-82.1401',
+  url: 'https://api.darksky.net/forecast/' + process.env.DARK_SKY_TOKEN + '/29.1872,-82.1401',
   method: 'GET'
 }, function(error, response, body) {
   console.log('error:', error);
