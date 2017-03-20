@@ -4,6 +4,7 @@
   "description": "Sends weather through SMS",
   "main": "send-weather.js",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "request": "^2.81.0",
     "twilio": "^2.11.1"
   },

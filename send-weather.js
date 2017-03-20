@@ -1,4 +1,5 @@
-	var request = require('request');
+	require('dotenv').config()
+  var request = require('request');
 
 request({
   url: 'https://api.darksky.net/forecast/ab610bc083b2e6ffb15905373c648898/29.1872,-82.1401',
@@ -9,14 +10,14 @@ request({
   var weatherData = JSON.parse(body);
   console.log('Temperature:', weatherData.currently.temperature, 'Currently:', weatherData.currently.summary, 'Rain Chance:', weatherData.currently.precipProbability); 
 
-  var accountSid = 'AC0534d92fb3e99e3b58430a6310b0539a'; 
-  var authToken = 'ef9775f3426922e5861a8c704ce2afb1'; 
+  var accountSid = process.env.TWILIO_SID;
+  var authToken = process.env.TWILIO_AUTH_TOKEN; 
  
   //require the Twilio module and create a REST client 
   var client = require('twilio')(accountSid, authToken); 
  
   client.messages.create({ 
-    to: "+13522740965", 
+    to: "+13525479441 ", 
     from: "+13526190024", 
     body: "Current Temp: " + weatherData.currently.temperature + "\xB0" + " \nOutside: " + weatherData.currently.summary + " \nRain Chance: " + weatherData.currently.precipProbability + "%",
   }, function(err, message) { 
