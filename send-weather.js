@@ -17,12 +17,13 @@ request({
   var client = require('twilio')(accountSid, authToken); 
  
   client.messages.create({ 
-    to: "+13525479441",
+    to: "+13522740965",
     from: "+13526190024", 
-    body: "Current Temp: " + weatherData.currently.temperature + "\xB0" + " \nOutside: " + weatherData.currently.summary + " \nRain Chance: " + weatherData.currently.precipProbability + "%",
+    body: "Current Temp: " + weatherData.currently.temperature + "\xB0" + " \nOutside: " + weatherData.currently.summary + " \nWith a " + weatherData.currently.precipProbability + "% chance of rain.",
   }, function(err, message) { 
-    console.log(err);
+    console.log(err); 
     console.log(message.sid); 
+
   });
  
 }); 
